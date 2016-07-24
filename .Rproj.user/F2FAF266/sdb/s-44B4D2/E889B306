@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "#abifunktsioon, mis teeb laiast pika formaadi\n#töötab data.table' formaadiga\n#' @export\nmeltimineDT=function(kanal, data) {\n  library(data.table)\n  sub=data[,grepl(paste(kanal, \"|identifikaator|ministeerium|allasutus|tegevusvaldkond|teenusetyyp|makse\", sep=\"\"),\n                  names(data)), with=F]\n\n  id=grep(c(\"identifikaator|ministeerium|allasutus|tegevusvaldkond|teenusetyyp|makse|link\"), names(sub), value=T)\n  if(length(id)<7) {\n    tulem=NULL\n  } else {\n    #meldime andmed kitsaks\n    tulem=melt(sub, id=id)\n    #muudan variable nime ära, mis on kanalispets, muidu ei saa rbindida\n    lingiNimi=names(tulem)[7]\n    setnames(tulem, old=lingiNimi, new=c(\"link\"))\n  }\n  tulem\n}\n",
+    "created" : 1453812684435.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2319372205",
+    "id" : "E889B306",
+    "lastKnownWriteTime" : 1469386060,
+    "last_content_update" : 1469386060615,
+    "path" : "~/R/riigiteenused - Copy/R/meltimine.R",
+    "project_path" : "R/meltimine.R",
+    "properties" : {
+        "chunk_rendered_width" : "650",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 8,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
