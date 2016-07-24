@@ -1,7 +1,7 @@
 #andmed pikaks, võtab eelenvad funktsioonid kokku, iga
 #aasta andmed teeb pikaks, kasutab data.table'i formaati
 #' @export
-andmedPikaksDT=function(andmedLai) {
+andmedPikaks=function(andmedLai) {
   library(data.table)
   andmed=data.table(andmedLai)
   #turn into list based on measuring years
@@ -27,7 +27,7 @@ andmedPikaksDT=function(andmedLai) {
   #lapply through korrastajaDT
   andmedLaiList <- lapply(andmedLaiList,
                           function(df) {
-    korrastajaDT(df, paste0(df$year,"."), df$year)
+    korrastaja(df, paste0(df$year,"."), df$year)
   })
   #return as one data frame/tables
   andmedPikk=rbindlist(andmedLaiList, fill=TRUE)

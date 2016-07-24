@@ -1,23 +1,23 @@
 #abifunktsioon kõikide kanalite pikaks tegemiseks
 #kasutab data.table'i formaati
 #' @export
-korrastajaDT=function(andmed, eemalda, mootmiseAasta) {
+korrastaja=function(andmed, eemalda, mootmiseAasta) {
   library(data.table)
   #eemalda - mis osa columnite nimedest tuleb eemdalda
   setnames(andmed, names(andmed), gsub(eemalda, "", names(andmed)))
   #kanalite lõikes meldime
-  veeb=meltimineDT("Veebileht / portaal.", data=andmed)
-  iseteen=meltimineDT("E-iseteenindus.", data=andmed)
-  eesti=meltimineDT("Eesti.ee.", data=andmed)
-  nuti=meltimineDT("Nutirakendus.", data=andmed)
-  digitv=meltimineDT("Digitelevisioon.", data=andmed)
-  epost=meltimineDT("E-post.", data=andmed)
-  sms=meltimineDT("Tekstisõnum.", data=andmed)
-  telefon=meltimineDT("Telefon.", data=andmed)
-  faks=meltimineDT("Faks.", data=andmed)
-  post=meltimineDT("Post.", data=andmed)
-  lett=meltimineDT("Letiteenus.", data=andmed)
-  kodus=meltimineDT("Kliendi juures.", data=andmed)
+  veeb=meltimine("Veebileht / portaal.", data=andmed)
+  iseteen=meltimine("E-iseteenindus.", data=andmed)
+  eesti=meltimine("Eesti.ee.", data=andmed)
+  nuti=meltimine("Nutirakendus.", data=andmed)
+  digitv=meltimine("Digitelevisioon.", data=andmed)
+  epost=meltimine("E-post.", data=andmed)
+  sms=meltimine("Tekstisõnum.", data=andmed)
+  telefon=meltimine("Telefon.", data=andmed)
+  faks=meltimine("Faks.", data=andmed)
+  post=meltimine("Post.", data=andmed)
+  lett=meltimine("Letiteenus.", data=andmed)
+  kodus=meltimine("Kliendi juures.", data=andmed)
 
   #rbindime
   koos=rbindlist(list(veeb, iseteen, eesti, nuti, digitv, epost, sms, telefon,

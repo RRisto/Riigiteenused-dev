@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "#' @import data.table\n\nNULL\n",
+    "created" : 1460312789119.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "757888247",
+    "id" : "3169F4C2",
+    "lastKnownWriteTime" : 1469388039,
+    "last_content_update" : 1469388039563,
+    "path" : "~/R/riigiteenused - Copy/R/import_packages.R",
+    "project_path" : "R/import_packages.R",
+    "properties" : {
+        "chunk_rendered_width" : "650",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 12,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
