@@ -1,0 +1,16 @@
+Package: riigiteenused
+Type: Package
+Title: Riigiteenuste andmete sisselugemine
+Version: 1.1
+Date: 2016-01-26
+Author: Risto Hinno
+Maintainer: <ristohinno@gmail.com>
+Description: Laeb riigiteenuste andmed (https://www.riigiteenused.ee/api/et/all) andmed alla ning viib laiast formaadist pikka formaati
+License: Creative Commons License
+Depends: data.table
+LazyData: TRUE
+RoxygenNote: 5.0.1
+devtools::use_package("data.table")
+devtools::use_package("jsonlite")
+devtools::use_package("reshape2")
+
