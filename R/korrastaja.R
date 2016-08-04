@@ -1,12 +1,11 @@
 #abifunktsioon kõikide kanalite pikaks tegemiseks
 #kasutab data.table'i formaati
 #' @export
-korrastaja=function(andmed, eemalda, mootmiseAasta) {
+korrastaja=function(andmed, mootmiseAasta) {
   #eemalda üleliigne col nimedest
-  #setnames(andmed, names(andmed), gsub(eemalda, "", names(andmed)))
 
   kanalid=c("Veebileht / portaal.","E-iseteenindus.","Eesti.ee.",
-            "Nutirakendus.","Digitelevisioon.","E-post.","Tekstisõnum.",
+            "Nutirakendus.","Digitelevisioon.","E-post.","TekstisĆµnum.",
           "Telefon.","Faks.","Post.","Letiteenus.","Kliendi juures.")
   #kanalite lõikes meldime
   koos=mapply(meltimine, kanal=kanalid,MoreArgs=list(data=andmed),
