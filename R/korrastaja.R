@@ -2,8 +2,6 @@
 #kasutab data.table'i formaati
 #' @export
 korrastaja=function(andmed, eemalda, mootmiseAasta) {
-  library(data.table)
-  #andmed=data.table(andmed)
   #eemalda - mis osa columnite nimedest tuleb eemdalda
   setnames(andmed, names(andmed), gsub(eemalda, "", names(andmed)))
   #kanalite lõikes meldime

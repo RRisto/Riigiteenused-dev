@@ -2,9 +2,9 @@
 #aasta andmed teeb pikaks, kasutab data.table'i formaati
 #' @export
 andmedPikaks=function(andmedLai) {
-  library(data.table)
+  #library(data.table)
   andmed=data.table(andmedLai)
-  #turn into list based on measuring years
+  #tee mõõtmise aasta järgi listiks
   andmedLaiList=list(
     andmedLai.2015=andmed[, !grepl("empty.|2011.|2013.|2012.|2014.",
                                 names(andmed)), with=F],
@@ -19,19 +19,19 @@ andmedPikaks=function(andmedLai) {
   andmedLai.Empty=andmed[, !grepl("2014.|2011.|2013.|2012.|2015.",
                                  names(andmed)), with=F])
 
-  years=gsub("[^0-9]","",names(andmedLaiList))#get years
-  years=ifelse(nchar(years)==0, "empty", years)#replace empty with "empty"
-  years=as.list(years)#make it list
+  years=gsub("[^0-9]","",names(andmedLaiList))#leiab aastad
+  years=ifelse(nchar(years)==0, "empty", years)#tühi element asenda "empty"ga
+  years=as.list(years)#tee listiks
 
-  andmedLaiList=Map(cbind, andmedLaiList, year = years)#add measuring years
-  #lapply through korrastaja
+  andmedLaiList=Map(cbind, andmedLaiList, year = years)#lisa mõõtmise aasta
+  #lapply läbi korrastaja
   andmedLaiList <- lapply(andmedLaiList,
                           function(df) {
     korrastaja(andmed=df, eemalda=paste0(df$year,".")[1],
                mootmiseAasta=df$year[1])
   })
-  #return as one data frame/tables
+  #tee üheks data frame/table-ks
   andmedPikk=rbindlist(andmedLaiList, fill=TRUE)
-  andmedPikk[, value:=as.numeric(as.character(value))]#make char to value
+  andmedPikk[, value:=as.numeric(as.character(value))]#tee characteriks
   andmedPikk[, MootmiseAasta:=gsub("empty", "pole moodetud", MootmiseAasta)]
 }
