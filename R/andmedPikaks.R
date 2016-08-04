@@ -33,4 +33,5 @@ andmedPikaks=function(andmedLai) {
   #return as one data frame/tables
   andmedPikk=rbindlist(andmedLaiList, fill=TRUE)
   andmedPikk[, value:=as.numeric(as.character(value))]#make char to value
+  andmedPikk[, MootmiseAasta:=gsub("empty", "pole moodetud", MootmiseAasta)]
 }
