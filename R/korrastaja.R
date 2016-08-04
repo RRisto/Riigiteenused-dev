@@ -5,8 +5,11 @@ korrastaja=function(andmed, eemalda, mootmiseAasta) {
   #eemalda - mis osa columnite nimedest tuleb eemdalda
   setnames(andmed, names(andmed), gsub(eemalda, "", names(andmed)))
   #kanalite lõikes meldime
+  # kanal=c("Veebileht / portaal.","E-iseteenindus.","Eesti.ee.", "Nutirakendus.",
+  #         "Digitelevisioon.","E-post.","Tekstisõnum.","Telefon.","Faks.","Post.",
+  #         "Letiteenus.","Kliendi juures.")
   kanal=c("Veebileht / portaal.","E-iseteenindus.","Eesti.ee.", "Nutirakendus.",
-          "Digitelevisioon.","E-post.","Tekstisõnum.","Telefon.","Faks.","Post.",
+          "Digitelevisioon.","E-post.","TekstisĆµnum.","Telefon.","Faks.","Post.",
           "Letiteenus.","Kliendi juures.")
   koos=mapply(meltimine, kanal=kanal,MoreArgs=list(data=andmed))
   #keevitame üheks dfks
