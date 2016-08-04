@@ -12,5 +12,6 @@ LazyData: TRUE
 RoxygenNote: 5.0.1
 devtools::use_package("data.table")
 devtools::use_package("jsonlite")
+devtools::use_package("rjson")
 devtools::use_package("reshape2")
 

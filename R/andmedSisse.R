@@ -1,9 +1,9 @@
 #' andmete downloadi abifunktsioon
 #' @export
 andmedSisse=function(url="https://www.riigiteenused.ee/api/et/all") {
-  #loeme andmed sisse
   library(rjson)
   library(jsonlite)
+  #loeme andmed sisse
   fromJSON(url, flatten=T)
 }
 
