@@ -3,7 +3,7 @@
 #' @export
 korrastaja=function(andmed, eemalda, mootmiseAasta) {
   library(data.table)
-  andmed=data.table(andmed)
+  #andmed=data.table(andmed)
   #eemalda - mis osa columnite nimedest tuleb eemdalda
   setnames(andmed, names(andmed), gsub(eemalda, "", names(andmed)))
   #kanalite lõikes meldime
@@ -21,9 +21,9 @@ korrastaja=function(andmed, eemalda, mootmiseAasta) {
   kodus=meltimine("Kliendi juures.", data=andmed)
 
   #rbindime
-  koos=data.table(rbindlist(list(
-    veeb, iseteen, eesti, nuti, digitv, epost, sms, telefon,
-                      faks, post, lett, kodus)))
+  koos=rbindlist(list(veeb, iseteen, eesti, nuti, digitv, epost, sms, telefon,
+                      faks, post, lett, kodus))
+  koos=as.data.table(koos)
 
   #eemaldame kanali ja näitaja ning paneme eraldi veergu
   if(length(koos)==0) {
