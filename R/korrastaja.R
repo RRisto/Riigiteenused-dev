@@ -5,29 +5,12 @@ korrastaja=function(andmed, eemalda, mootmiseAasta) {
   #eemalda - mis osa columnite nimedest tuleb eemdalda
   setnames(andmed, names(andmed), gsub(eemalda, "", names(andmed)))
   #kanalite lõikes meldime
-  # veeb=meltimine("Veebileht / portaal.", data=andmed)
-  # iseteen=meltimine("E-iseteenindus.", data=andmed)
-  # eesti=meltimine("Eesti.ee.", data=andmed)
-  # nuti=meltimine("Nutirakendus.", data=andmed)
-  # digitv=meltimine("Digitelevisioon.", data=andmed)
-  # epost=meltimine("E-post.", data=andmed)
-  # sms=meltimine("Tekstisõnum.", data=andmed)
-  # telefon=meltimine("Telefon.", data=andmed)
-  # faks=meltimine("Faks.", data=andmed)
-  # post=meltimine("Post.", data=andmed)
-  # lett=meltimine("Letiteenus.", data=andmed)
-  # kodus=meltimine("Kliendi juures.", data=andmed)
   kanal=c("Veebileht / portaal.","E-iseteenindus.","Eesti.ee.", "Nutirakendus.",
           "Digitelevisioon.","E-post.","Tekstisõnum.","Telefon.","Faks.","Post.",
           "Letiteenus.","Kliendi juures.")
   koos=mapply(meltimine, kanal=kanal,MoreArgs=list(data=andmed))
+  #keevitame üheks dfks
   koos=rbindlist(koos, fill=TRUE)
-
-  #rbindime
-  # koos=rbindlist(list(veeb, iseteen, eesti, nuti, digitv, epost, sms, telefon,
-  #                     faks, post, lett, kodus))
-  #koos=as.data.table(koos)
-
   #eemaldame kanali ja näitaja ning paneme eraldi veergu
   if(length(koos)==0) {
     return(NULL)
