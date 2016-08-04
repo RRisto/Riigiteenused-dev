@@ -11,7 +11,7 @@ meltimine=function(kanal, data) {
     tulem=NULL
   } else {
     #meldime andmed kitsaks
-    tulem=melt(sub, id=id)
+    tulem=reshape2::melt(sub, id=id)
     #muudan variable nime ära, mis on kanalispets, muidu ei saa rbindida
     lingiNimi=names(tulem)[7]
     setnames(tulem, old=lingiNimi, new=c("link"))

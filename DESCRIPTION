@@ -9,6 +9,7 @@ Description: Laeb riigiteenuste andmed (https://www.riigiteenused.ee/api/et/all)
 License: Creative Commons License
 Imports: data.table,
          jsonlite,
+         reshape2,
          rjson
 LazyData: TRUE
 RoxygenNote: 5.0.1
