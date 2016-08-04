@@ -40,7 +40,6 @@ korrastaja=function(andmed, eemalda, mootmiseAasta) {
                          as.character(koos[,variable]), fixed=T)]
     koos[,variable:=gsub("Kliendi juures", "Kliendijuures",
                          as.character(koos[,variable]), fixed=T)]
-
     koos[, c("kanal", "naitaja") := tstrsplit(
       as.character(koos[["variable"]]), "\\.(?=[^\\.]+$)", perl=T)]
     koos[,kanal:=gsub("^.*\\.", "", koos[, kanal])]
