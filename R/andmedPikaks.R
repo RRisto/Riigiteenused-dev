@@ -2,7 +2,6 @@
 #aasta andmed teeb pikaks, kasutab data.table'i formaati
 #' @export
 andmedPikaks=function(andmedLai) {
-  #library(data.table)
   andmed=data.table(andmedLai)
   #tee mõõtmise aasta järgi listiks
   andmedLaiList=list(
