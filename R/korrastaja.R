@@ -6,7 +6,7 @@ korrastaja=function(andmed, eemalda, mootmiseAasta) {
   setnames(andmed, names(andmed), gsub(eemalda, "", names(andmed)))
   #kanalite lõikes meldime
   kanal=c("Veebileht / portaal.","E-iseteenindus.","Eesti.ee.", "Nutirakendus.",
-          "Digitelevisioon.","E-post.","Tekstisõnum.","Telefon.","Faks.","Post.",
+          "Digitelevisioon.","E-post.",iconv("Tekstisõnum.", "latin1", "UTF-8"),"Telefon.","Faks.","Post.",
           "Letiteenus.","Kliendi juures.")
   # kanal=c("Veebileht / portaal.","E-iseteenindus.","Eesti.ee.", "Nutirakendus.",
   #         "Digitelevisioon.","E-post.","TekstisĆµnum.","Telefon.","Faks.","Post.",
