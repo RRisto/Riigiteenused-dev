@@ -3,7 +3,7 @@
 #' @export
 korrastaja=function(andmed, eemalda, mootmiseAasta) {
   #eemalda - mis osa columnite nimedest tuleb eemdalda
-  setnames(andmed, names(andmed), gsub(eemalda, "", names(andmed)))
+  #setnames(andmed, names(andmed), gsub(eemalda, "", names(andmed)))
   #kanalite lõikes meldime
   kanalid=c("Veebileht / portaal.","E-iseteenindus.","Eesti.ee.",
             "Nutirakendus.","Digitelevisioon.","E-post.","Tekstisõnum.",
