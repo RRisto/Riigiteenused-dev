@@ -7,7 +7,6 @@ Andmed pikaks}
 votab riigiteenuste laiad andmed, mis on alla laetud funktsiooniga andmedSisse() ning viib need pikka formaati.}
 \usage{
 andmedPikaks(andmedLai)
-andmedPikaksDT(andmedLai)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
