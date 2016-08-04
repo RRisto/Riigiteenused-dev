@@ -24,10 +24,11 @@ andmedPikaks=function(andmedLai) {
   years=as.list(years)#make it list
 
   andmedLaiList=Map(cbind, andmedLaiList, year = years)#add measuring years
-  #lapply through korrastajaDT
+  #lapply through korrastaja
   andmedLaiList <- lapply(andmedLaiList,
                           function(df) {
-    korrastaja(df, paste0(df$year,"."), df$year)
+    korrastaja(andmed=df, eemalda=paste0(df$year,".")[1],
+               mootmiseAasta=df$year[1])
   })
   #return as one data frame/tables
   andmedPikk=rbindlist(andmedLaiList, fill=TRUE)
