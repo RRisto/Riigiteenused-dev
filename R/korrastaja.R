@@ -5,15 +5,16 @@ korrastaja=function(andmed, eemalda, mootmiseAasta) {
   #eemalda - mis osa columnite nimedest tuleb eemdalda
   setnames(andmed, names(andmed), gsub(eemalda, "", names(andmed)))
   #kanalite lõikes meldime
-  kanal=c("Veebileht / portaal.","E-iseteenindus.","Eesti.ee.", "Nutirakendus.",
-          "Digitelevisioon.","E-post.",iconv("Tekstisõnum.", "latin1", "UTF-8"),"Telefon.","Faks.","Post.",
-          "Letiteenus.","Kliendi juures.")
+  kanalid=c("Veebileht / portaal.","E-iseteenindus.","Eesti.ee.",
+            "Nutirakendus.","Digitelevisioon.","E-post.","Tekstisõnum.",
+          "Telefon.","Faks.","Post.","Letiteenus.","Kliendi juures.")
   # kanal=c("Veebileht / portaal.","E-iseteenindus.","Eesti.ee.", "Nutirakendus.",
   #         "Digitelevisioon.","E-post.","TekstisĆµnum.","Telefon.","Faks.","Post.",
   #         "Letiteenus.","Kliendi juures.")
-  koos=mapply(meltimine, kanal=kanal,MoreArgs=list(data=andmed))
+  koos1=mapply(meltimine, kanal=kanalid,MoreArgs=list(data=andmed),
+               SIMPLIFY = F)
   #keevitame üheks dfks
-  koos=rbindlist(koos, fill=TRUE)
+  koos=rbindlist(koos1, fill=TRUE)
   #eemaldame kanali ja näitaja ning paneme eraldi veergu
   if(length(koos)==0) {
     return(NULL)
