@@ -22,7 +22,7 @@ korrastaja=function(andmed, eemalda, mootmiseAasta) {
   #rbindime
   koos=data.table(rbindlist(list(
     veeb, iseteen, eesti, nuti, digitv, epost, sms, telefon,
-                      faks, post, lett, kodus))
+                      faks, post, lett, kodus)))
 
   #eemaldame kanali ja näitaja ning paneme eraldi veergu
   if(length(koos)==0) {

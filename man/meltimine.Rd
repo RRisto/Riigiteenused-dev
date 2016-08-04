@@ -38,7 +38,7 @@ Kanal peab olema yks neist
 - "Kliendi juures."
 }
   \item{data}{
-andmed peavad olema laias formaadis. meltimineDT() puhul lisaks data.table'i formaadis}
+andmed peavad olema laias formaadis}
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
