@@ -26,7 +26,8 @@ andmedPikaks=function(andmedLai) {
   #lapply läbi korrastaja
   andmedLaiList <- lapply(andmedLaiList,
                           function(df) {
-    korrastaja(andmed=df, mootmiseAasta=df$year[1])
+    korrastaja(andmed=df, mootmiseAasta=df$year[1],
+               eemalda=paste0(df$year,".")[1])
   })
   #tee üheks data frame/table-ks
   andmedPikk=rbindlist(andmedLaiList, fill=TRUE)
