@@ -1,31 +1,28 @@
 #abifunktsioon kõikide kanalite pikaks tegemiseks
 #kasutab data.table'i formaati
 #' @export
-korrastaja=function(andmed, eemalda, mootmiseAasta) {
+korrastaja=function(andmed, mootmiseAasta) {
   #eemalda - mis osa columnite nimedest tuleb eemdalda
-  #setnames(andmed, names(andmed), gsub(eemalda, "", names(andmed)))
   #kanalite lõikes meldime
   kanalid=c("Veebileht / portaal.","E-iseteenindus.","Eesti.ee.",
             "Nutirakendus.","Digitelevisioon.","E-post.","Tekstisõnum.",
           "Telefon.","Faks.","Post.","Letiteenus.","Kliendi juures.")
-  # kanal=c("Veebileht / portaal.","E-iseteenindus.","Eesti.ee.", "Nutirakendus.",
-  #         "Digitelevisioon.","E-post.","TekstisĆµnum.","Telefon.","Faks.","Post.",
-  #         "Letiteenus.","Kliendi juures.")
-  koos1=mapply(meltimine, kanal=kanalid,MoreArgs=list(data=andmed),
+
+  koos=mapply(meltimine, kanal=kanalid,MoreArgs=list(data=andmed),
                SIMPLIFY = F)
   #keevitame üheks dfks
-  koos=rbindlist(koos1, fill=TRUE)
+  koos=rbindlist(koos, fill=TRUE)
   #eemaldame kanali ja näitaja ning paneme eraldi veergu
   if(length(koos)==0) {
     return(NULL)
   } else {
     koos[,variable:=gsub(".ee.", ".", as.character(koos[,variable]), fixed=T)]
-    koos[,variable:=gsub("Letiteenus büroos", "Letiteenus",
+    koos[,variable:=gsub("Letiteenus büroos", "Teeninduslett",
                          as.character(koos[,variable]), fixed=T)]
-    koos[,variable:=gsub("E-iseteenindus", "Eiseteenindus",
-                         as.character(koos[,variable]), fixed=T)]
-    koos[,variable:=gsub("E-post", "Epost",
-                         as.character(koos[,variable]), fixed=T)]
+    # koos[,variable:=gsub("E-iseteenindus", "Eiseteenindus",
+    #                      as.character(koos[,variable]), fixed=T)]
+    # koos[,variable:=gsub("E-post", "Epost",
+                        # as.character(koos[,variable]), fixed=T)]
     koos[,variable:=gsub("Veebileht / portaal", "Veebileht",
                          as.character(koos[,variable]), fixed=T)]
     koos[,variable:=gsub("Kliendi juures", "Kliendijuures",
