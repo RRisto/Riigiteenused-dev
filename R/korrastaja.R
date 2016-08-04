@@ -5,7 +5,8 @@ korrastaja=function(andmed, mootmiseAasta) {
   #eemalda üleliigne col nimedest
 
   kanalid=c("Veebileht / portaal.","E-iseteenindus.","Eesti.ee.",
-            "Nutirakendus.","Digitelevisioon.","E-post.","TekstisĆµnum.",
+            "Nutirakendus.","Digitelevisioon.","E-post.",
+            iconv("Tekstisõnum.", from = "latin1", to = "UTF-8"),
           "Telefon.","Faks.","Post.","Letiteenus.","Kliendi juures.")
   #kanalite lõikes meldime
   koos=mapply(meltimine, kanal=kanalid,MoreArgs=list(data=andmed),
