@@ -120,7 +120,7 @@ $(document).ready(function () {
 
 <div id="riigiteenuste-pakett" class="section level2">
 <h2>Riigiteenuste pakett</h2>
-<p>See on riigiteenuste kaardistamisel tekkivate andmete (<a href="https://www.riigiteenused.ee/api/et/all" class="uri">https://www.riigiteenused.ee/api/et/all</a> või inglise keeles kirjeldatud teenuste andmed <a href="https://www.riigiteenused.ee/api/en/all" class="uri">https://www.riigiteenused.ee/api/en/all</a>) sisselugmist hõlbustav R-i lisamoodul (pakett). Riigiteenuste kaardistamise projekti kohta loe siit: <a href="https://github.com/MKM-ITAO/riigiteenused" class="uri">https://github.com/MKM-ITAO/riigiteenused</a>.</p>
+<p>See on riigiteenuste kaardistamisel tekkivate andmete (<a href="https://www.riigiteenused.ee/api/et/all" class="uri">https://www.riigiteenused.ee/api/et/all</a> või inglise keeles kirjeldatud teenuste andmed <a href="https://www.riigiteenused.ee/api/en/all" class="uri">https://www.riigiteenused.ee/api/en/all</a>) sisselugemist hõlbustav R-i pakett. Riigiteenuste kaardistamise projekti kohta loe siit: <a href="https://github.com/MKM-ITAO/riigiteenused" class="uri">https://github.com/MKM-ITAO/riigiteenused</a>.</p>
 <div id="installeerimine" class="section level3">
 <h3>Installeerimine</h3>
 <pre class="r"><code>library(&quot;devtools&quot;)#kui devtools paketti pole, siis installi see install.packages(&quot;devtools&quot;)
@@ -133,10 +133,10 @@ install_github(&quot;RRisto/riigiteenused&quot;)</code></pre>
 <li>andmete sisselugemine laias formaadis (lisaks konverdib JSONist R-i dataframe’iks):</li>
 </ul>
 <pre class="r"><code>library(&quot;riigiteenused&quot;)
-andmedLai=andmedSisse(&quot;https://www.riigiteenused.ee/api/et/all&quot;)</code></pre>
+andmedLai=andmedSisse()</code></pre>
 <p>Selle juures tasub tähele panna, et muutuja “regulatsioon” jätab listiks, mistõttu, ei saa seda .csv/.txt-na salvestada. Et .csv-na salvestada, tuleb muutuja eemaldada (andmedLai$regulatsioon=NULL).</p>
 <ul>
-<li>andmete laiast fromaadist pikaks formaadiks tegemine (eemaldab need muutujad, mis on laias formaadis: “regulatsioon”, “objectId”, “eluarisyndmus”, “kirjeldus”,“eeltingimus”, “jareltingimus”, “createdAt”,“updatedAt”, “keel”, “osakondyksus”, “omanikunimi”,“omanikutelefon”,“omanikuemail”,“konfinfo”, “seotuddokumendid”, “seisund”,“muudatustvajav”, “aegumisekpv”, “funktsioon”, “veebiaadress”) (tagastab data.table’i/data.frame’i):</li>
+<li>andmete laiast fromaadist pikaks formaadiks tegemine (eemaldab need muutujad: “regulatsioon”, “objectId”, “eluarisyndmus”, “kirjeldus”,“eeltingimus”, “jareltingimus”, “createdAt”,“updatedAt”, “keel”, “osakondyksus”, “omanikunimi”,“omanikutelefon”,“omanikuemail”,“konfinfo”, “seotuddokumendid”, “seisund”,“muudatustvajav”, “aegumisekpv”, “funktsioon”, “veebiaadress”) (tagastab data.table’i/data.frame’i):</li>
 </ul>
 <pre class="r"><code>andmedPikk=andmedPikaks(andmedLai)</code></pre>
 <p>Pika ja laia andmeformaadi kohta loe siit: <a href="http://vita.had.co.nz/papers/tidy-data.pdf" class="uri">http://vita.had.co.nz/papers/tidy-data.pdf</a></p>
