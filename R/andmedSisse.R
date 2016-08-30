@@ -12,6 +12,7 @@ andmedSisse=function(url="https://www.riigiteenused.ee/api/et/all") {
   }), fill=TRUE)
   lai$teenuste_kanalid_ja_moodikud=NULL
   lai=cbind(lai,moodik)
+  lai
 }
 
 
