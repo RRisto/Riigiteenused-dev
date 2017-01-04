@@ -8,6 +8,7 @@ library("devtools")#kui devtools paketti pole, siis installi see install.package
 install_github("RRisto/riigiteenused")
 ```
 
+
 ###Kasutamine
 Hetkel on sisuliselt kaks funktsiooni, mida kasutada:
 
