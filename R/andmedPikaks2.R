@@ -23,13 +23,32 @@ andmedPikaks2=function(andmedLai) {
 
 
   library(reshape2)
-  pikk=melt(tulem, measure.vars=c("transaction", "satisfaction", "cost",
-                                  "activeTimeSpent", "totalTimeSpent"))
+  tulem$'@type'=NULL
+  #nimetame veerud ümber
+  names(tulem)[names(tulem)=="aasta"] <- "MootmiseAasta"
+  names(tulem)[names(tulem)=="payment"] <- "makse"
+  names(tulem)[names(tulem)=="id"] <- "identifikaator"
+  names(tulem)[names(tulem)=="domain"] <- "valdkond"
+  names(tulem)[names(tulem)=="subdomain"] <- "alamvaldkond"
+  names(tulem)[names(tulem)=="serviceType"] <- "teenusetyyp"
+  names(tulem)[names(tulem)=="provider.memberOf.name"] <- "ministeerium"
+  names(tulem)[names(tulem)=="provider.name"] <- "allasutus"
+  names(tulem)[names(tulem)=="additionalType"] <- "kanal"
+  names(tulem)[names(tulem)=="transaction"] <- "osutamistearv"
+  names(tulem)[names(tulem)=="satisfaction"] <- "rahulolu"
+  names(tulem)[names(tulem)=="cost"] <- "halduskulu"
+  names(tulem)[names(tulem)=="activeTimeSpent"] <- "ajakulu"
+  names(tulem)[names(tulem)=="totalTimeSpent"] <- "ajakuluBruto"
+
+  pikk=melt(tulem, measure.vars=c("osutamistearv", "rahulolu", "halduskulu",
+                                  "ajakulu", "ajakuluBruto"))
+  names(pikk)[names(pikk)=="variable"] <- "naitaja"
 
   #kus on müüdik puudu paenme NA
   pikk$value=ifelse(pikk$value=="", NA, pikk$value)
   #kui mõõdik on NA, siis paneme ka aasta emtpyks
-  pikk$aasta=ifelse(is.na(pikk$value), "empty", pikk$aasta)
+  #pikk$aasta=ifelse(is.na(pikk$value), "empty", pikk$aasta)
   #eemaldame duplikaadid
-  pikk[!duplicated(pikk), ]
+  #pikk[!duplicated(pikk), ]
+  pikk
 }
