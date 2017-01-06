@@ -21,8 +21,7 @@ andmedPikaks2=function(andmedLai) {
     tulem=rbind(tulem, teenustulem)
   }
 
-
-  library(reshape2)
+  #library(reshape2)
   tulem$'@type'=NULL
   #nimetame veerud ümber
   names(tulem)[names(tulem)=="aasta"] <- "MootmiseAasta"
@@ -43,12 +42,7 @@ andmedPikaks2=function(andmedLai) {
   pikk=melt(tulem, measure.vars=c("osutamistearv", "rahulolu", "halduskulu",
                                   "ajakulu", "ajakuluBruto"))
   names(pikk)[names(pikk)=="variable"] <- "naitaja"
-
-  #kus on müüdik puudu paenme NA
+  #kus on müüdik puudu paneme NA
   pikk$value=ifelse(pikk$value=="", NA, pikk$value)
-  #kui mõõdik on NA, siis paneme ka aasta emtpyks
-  #pikk$aasta=ifelse(is.na(pikk$value), "empty", pikk$aasta)
-  #eemaldame duplikaadid
-  #pikk[!duplicated(pikk), ]
   pikk
 }
