@@ -1,7 +1,7 @@
 #andmed pikaks, võtab eelenvad funktsioonid kokku, iga
 #aasta andmed teeb pikaks, kasutab data.table'i formaati
 #' @export
-andmedPikaks2=function(andmedLai) {
+andmedPikaks=function(andmedLai) {
   tulem=data.frame(NULL)
   for (i in 1:nrow(andmedLai)) {
     #id=ver2$identifier[i]
