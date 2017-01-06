@@ -1,10 +1,9 @@
-#andmed pikaks, võtab eelenvad funktsioonid kokku, iga
-#aasta andmed teeb pikaks, kasutab data.table'i formaati
+#andmed pikaks, võtab eelnevad funktsioonid kokku, iga
+#aasta andmed teeb pikaks
 #' @export
 andmedPikaks=function(andmedLai) {
   tulem=data.frame(NULL)
   for (i in 1:nrow(andmedLai)) {
-    #id=ver2$identifier[i]
     sub=andmedLai$serviceStatistics[i]
     aastad=sub[[1]][2]
     teenustulem=data.frame(NULL)
@@ -21,7 +20,7 @@ andmedPikaks=function(andmedLai) {
     tulem=rbind(tulem, teenustulem)
   }
 
-  #library(reshape2)
+  library(reshape2)
   tulem$'@type'=NULL
   #nimetame veerud ümber
   names(tulem)[names(tulem)=="aasta"] <- "MootmiseAasta"
